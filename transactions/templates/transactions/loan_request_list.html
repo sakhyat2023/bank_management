@@ -1,0 +1,35 @@
+{% extends "base.html" %} {% block content %}
+<div class="loan_list py-3">
+  <h1 class="text-center">Loan List</h1>
+  <form action="" method="get" class="py-3">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Loan ID</th>
+          <th scope="col">Loan Amount</th>
+          <th scope="col">Loan Status</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for loan in loans %}
+        <tr>
+          <th scope="row">{{loan.id}}</th>
+          <td>{{loan.amount}}</td>
+          <td>{{ loan.loan_approve }}</td>
+          <td>
+            {% if loan.loan_approve %}
+            <a href="{% url 'pay_loan' loan.id %}" class="bg-success text-white py-1 px-4 text-decoration-none fw-bold rounded-pill">Pay</a>
+            {% else %}
+            <span class="py-1 px-4 bg-danger text-white rounded-pill"
+              >Loan Pending</span
+            >
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </form>
+</div>
+{% endblock content %}

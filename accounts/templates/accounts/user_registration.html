@@ -1,0 +1,131 @@
+{% extends "base.html" %} {% block content %}
+<div class="w-75 mx-auto py-3">
+  <h1>Create a bank account</h1>
+  {% if form.non_field_errors %} {% for error in form.non_field_errors %}
+  <p class="py-3 border rounded-2">{{error}}</p>
+  {% endfor %} {% endif %}
+  <form action="" method="post" class="d-flex flex-column gap-3" novalidate>
+    {% csrf_token %}
+    <div class="form-group">
+      <label class="text-uppercase fw-semibold">{{form.username.label}}</label>
+      <div>{{form.username}}</div>
+      {% if form.errors.username %}
+      <p>{{form.errors.username}}</p>
+      {% endif %}
+    </div>
+    <div class="form-group d-flex gap-3">
+      <div class="w-100">
+        <label class="text-uppercase fw-semibold"
+          >{{form.first_name.label}}</label
+        >
+        <div>{{form.first_name}}</div>
+        {% if form.errors.first_name %}
+        <p>{{form.errors.first_name}}</p>
+        {% endif %}
+      </div>
+      <div class="w-100">
+        <label for="username" class="text-uppercase fw-semibold"
+          >{{form.last_name.label}}</label
+        >
+        <div>{{form.last_name}}</div>
+        {% if form.errors.last_name %}
+        <p>{{form.errors.last_name}}</p>
+        {% endif %}
+      </div>
+    </div>
+    <div class="form-group d-flex gap-3">
+      <div class="w-100">
+        <label class="text-uppercase fw-semibold">{{form.email.label}}</label>
+        <div>{{form.email}}</div>
+        {% if form.errors.email %}
+        <p class="text-danger">{{form.errors.email}}</p>
+        {% endif %}
+      </div>
+      <div class="w-100">
+        <label class="text-uppercase fw-semibold"
+          >{{form.account_type.label}}</label
+        >
+        <div>{{form.account_type}}</div>
+        {% if form.errors.account_type %}
+        <p class="text-danger">{{form.errors.account_type}}</p>
+        {% endif %}
+      </div>
+    </div>
+    <div class="form-group d-flex gap-3">
+      <div class="w-100">
+        <label class="text-uppercase fw-semibold">{{form.gender.label}}</label>
+        <div>{{form.gender}}</div>
+        {% if form.errors.gender %}
+        <p class="text-danger">{{form.errors.gender}}</p>
+        {% endif %}
+      </div>
+      <div class="w-100">
+        <label class="text-uppercase fw-semibold"
+          >{{form.birth_date.label}}</label
+        >
+        <div>{{form.birth_date}}</div>
+        {% if form.errors.birth_date %}
+        <p class="text-danger">{{form.errors.birth_date}}</p>
+        {% endif %}
+      </div>
+    </div>
+    <div class="form-group d-flex gap-3">
+      <div class="w-100">
+        <label class="text-uppercase fw-semibold"
+          >{{form.password1.label}}</label
+        >
+        <div>{{form.password1}}</div>
+        {% if form.errors.password1 %}
+        <p class="text-danger">{{form.errors.password1}}</p>
+        {% endif %}
+      </div>
+      <div class="w-100">
+        <label class="text-uppercase fw-semibold"
+          >{{form.password2.label}}</label
+        >
+        <div>{{form.password2}}</div>
+        {% if form.errors.password2 %}
+        <p class="text-danger">{{form.errors.password2}}</p>
+        {% endif %}
+      </div>
+    </div>
+    <div class="form-group d-flex gap-3">
+      <div class="w-100">
+        <label class="text-uppercase fw-semibold"
+          >{{form.street_address.label}}</label
+        >
+        <div>{{form.street_address}}</div>
+        {% if form.errors.street_address %}
+        <p class="text-danger">{{form.errors.street_address}}</p>
+        {% endif %}
+      </div>
+      <div class="w-100">
+        <label class="text-uppercase fw-semibold">{{form.city.label}}</label>
+        <div>{{form.city}}</div>
+        {% if form.errors.city %}
+        <p class="text-danger">{{form.errors.city}}</p>
+        {% endif %}
+      </div>
+    </div>
+    <div class="form-group d-flex gap-3">
+      <div class="w-100">
+        <label class="text-uppercase fw-semibold"
+          >{{form.postal_code.label}}</label
+        >
+        <div>{{form.postal_code}}</div>
+        {% if form.errors.postal_code %}
+        <p class="text-danger">{{form.errors.postal_code}}</p>
+        {% endif %}
+      </div>
+      <div class="w-100">
+        <label class="text-uppercase fw-semibold">{{form.country.label}}</label>
+        <div>{{form.country}}</div>
+        {% if form.errors.country %}
+        <p class="text-danger">{{form.errors.country}}</p>
+        {% endif %}
+      </div>
+    </div>
+    <button class="btn btn-dark py-2">Submit</button>
+  </form>
+</div>
+{% endblock content %}

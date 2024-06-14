@@ -1,0 +1,27 @@
+{% extends "base.html" %} {% block content %}
+<div class="w-75 mx-auto py-3">
+  <h1>Login</h1>
+  <form action="" method="post" class="d-flex flex-column gap-3">
+    {% if form.non_field_errors %}
+    <div class="alert alert-danger">
+      {% for error in form.non_field_errors %}
+      <span>{{ error }}</span>
+      {% endfor %}
+    </div>
+    {% endif %} {% csrf_token %} {% for field in form.visible_fields %}
+    <div class="d-flex flex-column">
+      <label class="fw-semibold text-uppercase">{{field.label}}</label>
+      <input
+        type="{{field.widget_type}}"
+        name="{{field.name}}"
+        class="form-control"
+      />
+      {% if field.errors %} {% for error in field.errors %}
+      <p class="text-danger">{{error}}</p>
+      {% endfor %} {% endif %}
+    </div>
+    {% endfor %}
+    <button class="btn btn-dark py-2">Submit</button>
+  </form>
+</div>
+{% endblock content %}
